@@ -16,7 +16,7 @@ Designed for containerized environments and supports flexible authentication and
 
 ### Build the Docker image
 ```
-docker build -t elk-devtools-proxy .
+docker build -t mgrafl/elk-devtools-proxy .
 ```
 
 
@@ -27,7 +27,7 @@ docker run -p 8080:8080 \
   [-e INSECURE_SKIP_VERIFY=1] \
   [-e CREDENTIAL_HEADER_NAME=Cookie] \
   [-e LOG_LEVEL=DEBUG] \
-  elk-devtools-proxy
+  mgrafl/elk-devtools-proxy
 ```
 
 - `KIBANA_URL` (required): URL of the Kibana instance (default: http://kibana:5601)
@@ -40,11 +40,11 @@ docker run -p 8080:8080 \
 
 Self-removing container without further authentication:
 ```
-docker run --rm -e KIBANA_URL=https://your-kibana-server/kibana -p 8080:8080 elk-devtools-proxy
+docker run --rm -e KIBANA_URL=https://your-kibana-server/kibana -p 8080:8080 mgrafl/elk-devtools-proxy
 ```
 
 
 Self-removing container skipping server certificate verification, using "Cookie" credential header, logging at debug level:
 ```
-docker run --rm -i -e KIBANA_URL=https://your-kibana-server/kibana -e INSECURE_SKIP_VERIFY=1 -e CREDENTIAL_HEADER_NAME=Cookie -e LOG_LEVEL=DEBUG -p 8080:8080 elk-devtools-proxy
+docker run --rm -i -e KIBANA_URL=https://your-kibana-server/kibana -e INSECURE_SKIP_VERIFY=1 -e CREDENTIAL_HEADER_NAME=Cookie -e LOG_LEVEL=DEBUG -p 8080:8080 mgrafl/elk-devtools-proxy
 ```
