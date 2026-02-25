@@ -49,11 +49,10 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           # For now, only use tag "latest" and, on release, convert semver v1.0.0 into a tag "1.0.0".
-          # Tag with variant ("latest" or "docker") and release version e.g. "1.0.0" or "1.0.0-docker".
+          # Tag with "latest" and release version e.g. "1.0.0".
           tags: |
-            type=raw,value=${{ matrix.variant }}
-            type=semver,pattern={{version}},enable=${{ matrix.variant == 'latest' }}
-            type=semver,pattern={{version}},suffix=-${{ matrix.variant }},enable=${{ matrix.variant != 'latest' }}
+            type=raw,value=latest
+            type=semver,pattern={{version}}
 
       # Build and push Docker image with Buildx (don't push on PR)
       # https://github.com/docker/build-push-action
