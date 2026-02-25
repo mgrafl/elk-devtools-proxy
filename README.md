@@ -14,7 +14,12 @@ Designed for containerized environments and supports flexible authentication and
 ## Usage
 
 
-### Build the Docker image
+### Docker image
+
+Simply use the Docker image from [mgrafl/elk-devtools-proxy](https://hub.docker.com/r/mgrafl/elk-devtools-proxy).
+
+Alternatively, build the image locally via:
+
 ```
 docker build -t mgrafl/elk-devtools-proxy .
 ```
